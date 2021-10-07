@@ -1,13 +1,42 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-extern void CMAIN(float n);
+extern void imprimirasm(float n);
+extern void CAMBIARSIGNO(float n);/*le cambia el signo a lo que 
+le pases por parametro y lo guarda en "float_mb"*/
+extern void POTENCIAL2(float n);/*multiplica lo pasado por parametro
+por si mismo y lo guarda en bAlcuadrado*/
+extern void MULTIPLY(float A,float C);
+extern float float_b;
+extern float float_mb;
+extern float bALcuadrado;
+extern float ac4;
+extern float float_a;
+extern float float_c;
+
 
 int main (){
-	
-float a;
-float b;
-float c;	
+float_a=2.0;
+float_b=1.5;
+float_c=3.0;
+POTENCIAL2(float_b);
+imprimirasm(bALcuadrado);
+//imprimirasm(float_a);
+//CAMBIARSIGNO(float_a);
+//imprimirasm(float_mb);
+MULTIPLY(float_a,float_c);
+//MULTIPLY(ac4,4.0);
+//imprimirasm(ac4);
+
+
+//MULTIPLICARPORMENOS1(float_b);
+
+//imprimirasm(float_mb);
+//MULTIPLICARPORSIMISMO(float_b);
+//imprimirasm(bALcuadrado);
+
+
+/*
 printf("ingrese el valor a");
 scanf("\n %f" ,&a);
 printf("ingrese el valor b");
@@ -15,7 +44,13 @@ scanf("\n %f" ,&b);
 printf("ingrese el valor c");
 scanf("\n %f" ,&c);
 
-CMAIN(a);
+imprimirasm(b);
+//imprimirasm(c);
+//imprimirasm(a);
+
+MULTIPLICARPORMENOS1(b,menosB);
+imprimirasm(menosB);
+*/
 
 /* //pasos a seguir:
 float menosb=MULTIPLICARPORMENOS1(b);//guardamos -b en la variable.
