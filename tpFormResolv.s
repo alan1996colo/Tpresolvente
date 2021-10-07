@@ -11,6 +11,15 @@ section .data
     global float_mb
     float_mb:
     dd 0.0
+    global ac4
+    ac4:
+    dd 0.0
+    global float_a
+    float_a:
+    dd 0.0
+    global float_c
+    float_c:
+    dd 0.0
     global bALcuadrado
     bALcuadrado:
     dd 0.0
@@ -22,7 +31,7 @@ section .text
 
 global imprimirasm
 imprimirasm:
-;mov ebp, esp
+     ;mov ebp, esp
     ;enter
     push ebp ;guardo el puntero base de la pila
     mov ebp, esp ;apunto la base de la pila al actual.
@@ -45,9 +54,9 @@ imprimirasm:
     pop ebp ;restauro el ebp viejo porque en la linea 25 ya habia restaurado el esp +12
     ret
 
-global MULTIPLICARPORMENOS1
-MULTIPLICARPORMENOS1:
-;enter
+global CAMBIARSIGNO
+CAMBIARSIGNO:
+    ;enter
     push ebp ;guardo el puntero base de la pila
     mov ebp, esp ;apunto la base de la pila al actual.
     ;------
@@ -58,29 +67,42 @@ MULTIPLICARPORMENOS1:
     fchs  ;le cambio el signo
     fst dword[float_mb] ;lo guardo en lo que seria la segunda variable
     add esp,4
-   
     
- ;leave
-   mov esp, ebp
-   pop ebp ;
-    ret
-global MULTIPLICARPORSIMISMO
-MULTIPLICARPORSIMISMO:
-;enter
-push ebp ;guardo el puntero base de la pila
-mov ebp, esp ;apunto la base de la pila al actual.
-;------
-   
+    ;leave
+    mov esp, ebp
+    pop ebp ;
+     ret
+
+global POTENCIAL2
+POTENCIAL2:
+  ;enter
+  push ebp ;guardo el puntero base de la pila
+  mov ebp, esp ;apunto la base de la pila al actual.
+    ;------
     fld dword[ebp + 8] ;carga el punto flotante
-    
-    fmul st0,st0
-    
-    fst qword[bALcuadrado]
-    
+    fld dword[ebp +8]; cargo de nuevo
+    fmul st0,st1
+    fst dword[bALcuadrado]; jeje poner una qword en lugar de dword me trajo muchos problemas
+    add esp ,4
+    ;leave
+    mov esp, ebp
+    pop ebp ;
+    ret
+
+
+
+global MULTIPLY
+MULTIPLY:
+    ;enter
+    push ebp ;guardo el puntero base de la pila
+    mov ebp, esp ;apunto la base de la pila al actual.
+     ;------
+    fld dword[ebp + 8] ;carga el punto flotante
+    fld dword[ebp+12]
+    fmul st0,st1;multiplico por
+    fst dword[ac4];guardo en la misma etiqueta xd
     add esp,4
-   
-    
- ;leave
-   mov esp, ebp
-   pop ebp ;
-   ret
+    ;leave
+    mov esp, ebp
+    pop ebp ;
+    ret

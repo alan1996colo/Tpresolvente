@@ -2,23 +2,38 @@
 #include <stdlib.h>
 
 extern void imprimirasm(float n);
-extern void MULTIPLICARPORMENOS1(float n);/*le cambia el signo a lo que 
+extern void CAMBIARSIGNO(float n);/*le cambia el signo a lo que 
 le pases por parametro y lo guarda en "float_mb"*/
-extern void MULTIPLICARPORSIMISMO(float n);
+extern void POTENCIAL2(float n);/*multiplica lo pasado por parametro
+por si mismo y lo guarda en bAlcuadrado*/
+extern void MULTIPLY(float A,float C);
 extern float float_b;
 extern float float_mb;
 extern float bALcuadrado;
+extern float ac4;
+extern float float_a;
+extern float float_c;
 
 
 int main (){
-float_b=10.0;
+float_a=2.0;
+float_b=1.5;
+float_c=3.0;
+POTENCIAL2(float_b);
+imprimirasm(bALcuadrado);
+//imprimirasm(float_a);
+//CAMBIARSIGNO(float_a);
+//imprimirasm(float_mb);
+MULTIPLY(float_a,float_c);
+//MULTIPLY(ac4,4.0);
+//imprimirasm(ac4);
 
-imprimirasm(float_b);
+
 //MULTIPLICARPORMENOS1(float_b);
 
 //imprimirasm(float_mb);
-MULTIPLICARPORSIMISMO(float_b);
-imprimirasm(bALcuadrado);
+//MULTIPLICARPORSIMISMO(float_b);
+//imprimirasm(bALcuadrado);
 
 
 /*

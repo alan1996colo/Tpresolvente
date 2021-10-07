@@ -1,1 +1,4 @@
 primer boceto del tp
+La idea del tp es implementar la formula resolvente en lenguaje ensamblador x86 y C .
+Para ello los pasos que fui llevando a cabo fueron primero, reducir la formula resolvente en funciones mas reducidas como por ejempo multiplicar. Cada funcion es golbal, es llamada desde asm hacia C, y usan variables globales en asm que tambien son llamadas por C y si es necesario modificadas.
+hastaa ahora el primer inconveniente que tuve fue la multiplicacion y el pasaje de parametros, ya que para la multiplicacion de numeros flotantes se debe usar el stack dedicado del 8086, y no los registros convencionales, lo que me complico debido a que el masm que tengo instalado no compila mis fuentes y el gdb no me abre los archibos por alguna falta de libreria amd-64, por lo tanto utilice plenamente el Visual Studio.
