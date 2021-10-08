@@ -65,8 +65,8 @@ CAMBIARSIGNO:
     fst qword[result]
     push dword[result] ;lo pongo  arriba en la pila
     fchs  ;le cambio el signo
-    fst dword[float_mb] ;lo guardo en lo que seria la segunda variable
-    add esp,4
+    ;fst dword[float_mb] ;DESDE AHORA CANCELAMOS LAS PARTES DE GUARDAR
+    ;add esp,4
     
     ;leave
     mov esp, ebp
@@ -82,8 +82,8 @@ POTENCIAL2:
     fld dword[ebp + 8] ;carga el punto flotante
     fld dword[ebp +8]; cargo de nuevo
     fmul st0,st1
-    fst dword[bALcuadrado]; jeje poner una qword en lugar de dword me trajo muchos problemas
-    add esp ,4
+    ;fst dword[bALcuadrado]; DESDE AHORA CANCELAMOS LAS PARTES DE GUARDAR
+    ;add esp ,4
     ;leave
     mov esp, ebp
     pop ebp ;
@@ -93,6 +93,7 @@ POTENCIAL2:
 
 global MULTIPLY
 MULTIPLY:
+
     ;enter
     push ebp ;guardo el puntero base de la pila
     mov ebp, esp ;apunto la base de la pila al actual.
@@ -100,8 +101,8 @@ MULTIPLY:
     fld dword[ebp + 8] ;carga el punto flotante
     fld dword[ebp+12]
     fmul st0,st1;multiplico por
-    fst dword[ac4];guardo en la misma etiqueta xd
-    add esp,4
+    ;fst dword[ac4];NO HACE FALTA GUARDAR EL VALOR, DIRECTAMENTE LO RETORNO Y QUE SE OCUPE C
+    ;add esp,4 lo omitimos para que el valor sea retornado
     ;leave
     mov esp, ebp
     pop ebp ;
