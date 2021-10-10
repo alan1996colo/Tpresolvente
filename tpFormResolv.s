@@ -5,24 +5,7 @@ section .data
     global format
     format:
      db "%f",10,0
-    global float_b
-    float_b:
-     dd 0.0
-    global float_mb
-    float_mb:
-    dd 0.0
-    global ac4
-    ac4:
-    dd 0.0
-    global float_a
-    float_a:
-    dd 0.0
-    global float_c
-    float_c:
-    dd 0.0
-    global bALcuadrado
-    bALcuadrado:
-    dd 0.0
+   
 
 result dq 0.0
     
@@ -107,3 +90,45 @@ MULTIPLY:
     mov esp, ebp
     pop ebp ;
     ret
+global SUMAR
+SUMAR:
+    ;enter
+    push ebp ;guardo el puntero base de la pila
+    mov ebp, esp ;apunto la base de la pila al actual.
+    fld dword[ebp+8]
+    fld dword[ebp+12]
+    fadd st0, st1
+
+     ;leave
+    mov esp, ebp
+    pop ebp ;
+    ret
+global RAIZ2
+RAIZ2:
+    ;enter
+    push ebp ;guardo el puntero base de la pila
+    mov ebp, esp ;apunto la base de la pila al actual.
+    
+    fld dword[ebp+8]
+    fsqrt
+        
+     ;leave
+    mov esp, ebp
+    pop ebp ;
+    ret
+global DIVIDIR
+DIVIDIR:
+    ;enter
+    push ebp ;guardo el puntero base de la pila
+    mov ebp, esp ;apunto la base de la pila al actual.    
+    fld dword[ebp+8]
+    fld dword[ebp+12]
+    fdiv
+        
+     ;leave
+    mov esp, ebp
+    pop ebp ;
+    ret
+    
+
+
