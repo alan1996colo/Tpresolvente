@@ -8,6 +8,7 @@ section .data
    
 
 result dq 0.0
+vector dd 0.0
     
 section .text
 
@@ -130,5 +131,20 @@ DIVIDIR:
     pop ebp ;
     ret
     
-
+global PRODUCTOESCALAR
+PRODUCTOESCALAR:
+    ;enter
+    push ebp ;guardo el puntero base de la pila
+    mov ebp, esp ;apunto la base de la pila al actual.    
+    fld dword[ebp+8]
+    fld dword[ebp+12]
+    ;necesito acceder al elemento del arreglo.
+    fst dword[vector]
+    fld dword[vector]
+    ;fmul st0,st1;VAMOS A VER QUIE ES LO QUE MULTIPLICA
+    
+     ;leave
+    mov esp, ebp
+    pop ebp ;
+    ret
 
