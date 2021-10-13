@@ -40,8 +40,8 @@ CAMBIARSIGNO:
     FINIT
    
     fld dword[ebp + 8] ;carga el punto flotante
-    fst qword[result]
-    push dword[result] ;lo pongo  arriba en la pila
+    ;fst qword[result];no cambia si lo saco
+   ; push dword[result] ;lo pongo  arriba en la pila
     fchs  ;le cambio el signo
     ;leave
     mov esp, ebp
