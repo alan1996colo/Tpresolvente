@@ -113,6 +113,7 @@ Entonces use `FADD` para sumar los valores y finalmente `FMUL` para multiplicarl
 
 Todo esto lo compile usando los comandos 
 >nasm -f elf32 tpFormResolv.s -o tpFormResolv.o
+>
 >gcc -m32 -o prueba1 tpFormResolv.o tpFormResolv.c
 
 para ejecutar
