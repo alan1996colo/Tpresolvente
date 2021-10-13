@@ -71,11 +71,11 @@ de igual dimensión (usualmente en la forma de vectores) y "retorna un único n�
 		}
 		if (elegirPRG == 2)//Entramos en el programa calcula resovente
 		{
-			printf("ingrese el valor a");//asignamos los valores
+			printf("ingrese el valor a: ");//asignamos los valores
 			scanf("\n %f", &a);
-			printf("ingrese el valor b");
+			printf("ingrese el valor b: ");
 			scanf("\n %f", &b);
-			printf("ingrese el valor c");
+			printf("ingrese el valor c: ");
 			scanf("\n %f", &c);
             //comienza la resolvente
 			mb = CAMBIARSIGNO(b);
