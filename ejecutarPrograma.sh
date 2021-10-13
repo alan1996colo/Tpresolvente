@@ -1,3 +1,9 @@
+#!/bin/bash
+
+echo "Bienvenido al programa \n"
+nasm -f elf32 tpFormResolv.s -o tpFormResolv.o
+gcc -m32 -o prueba1 tpFormResolv.o tpFormResolv.c
+./prueba1 
 
 
 
