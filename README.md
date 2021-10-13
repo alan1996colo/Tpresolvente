@@ -1,8 +1,26 @@
 #      **Trabajo Practico de Formula resolvente y producto escalar**
 ***Para ejecutar el programa siga los siguientes pasos***
+1) Descargar los archivos: Presione en code, y luego en download zip.
+![Descargar el archivo ](https://scontent.faep8-2.fna.fbcdn.net/v/t1.6435-9/245489018_10217752618121376_390424355651185012_n.jpg?_nc_cat=107&_nc_rgb565=1&ccb=1-5&_nc_sid=730e14&_nc_ohc=C_RNsXrwcJIAX9L9328&_nc_ht=scontent.faep8-2.fna&oh=d5f4cd87a31e02e0eda4901415f9b068&oe=618D7C7B)
+2)Vaya a su carpeta de descargas, o donde haya descargado el archivo y extraiga el archivo (puede extraer alli o donde guste) se creara la carpeta Tpresolvente-master
+![Extraer Archivo](https://scontent.faep8-2.fna.fbcdn.net/v/t1.6435-9/245387435_10217752618521386_7619106787302154022_n.jpg?_nc_cat=108&_nc_rgb565=1&ccb=1-5&_nc_sid=730e14&_nc_ohc=5iikS8qz4HoAX-1RtPO&_nc_ht=scontent.faep8-2.fna&oh=7408a48c2f160f8f9981f76de807d2bb&oe=618D1B59)
 
+3)Abra la carpeta >Tpresolvente-master y dentro de ella abra la terminal(puede hacerlo haciendo segundo click o con ctrl+alt+t)
+![Abrir Terminal](https://scontent.faep8-2.fna.fbcdn.net/v/t1.6435-9/245542815_10217752618201378_4105937340646264437_n.jpg?_nc_cat=102&_nc_rgb565=1&ccb=1-5&_nc_sid=730e14&_nc_ohc=16C3-Or-3HcAX9EuAjo&_nc_oc=AQlad20BkTh-H63IvUMN2rwzZbt6wODvVa2TCgoPY6vWMJULYYTgauRMHFL5QZ8tK8M&_nc_ht=scontent.faep8-2.fna&oh=8df3ef73f8476ee71c14fc2a0de342e8&oe=618B342E)
+Asegurese de estar posicionado sobre >Tpresolvente-master.
 
+4)Ejecute el script bash,en la terminal introduzca el siguiente comando ./ejecutarPrograma.sh
 
+![ejecutar comando](https://scontent.faep8-1.fna.fbcdn.net/v/t1.6435-9/245402449_10217752617561362_7429618484117687242_n.jpg?_nc_cat=105&_nc_rgb565=1&ccb=1-5&_nc_sid=730e14&_nc_ohc=cT2YtXy-UekAX_awXjJ&_nc_ht=scontent.faep8-1.fna&oh=b667d9341ef9bd5f0e51531f4c1ba5e7&oe=618DEDA1)
+5)Presione Enter y siga las instrucciones
+![disfrutar programa](https://scontent.faep8-1.fna.fbcdn.net/v/t1.6435-9/245368234_10217752617481360_7405541865966547005_n.jpg?_nc_cat=111&_nc_rgb565=1&ccb=1-5&_nc_sid=730e14&_nc_ohc=8urt8LeCXYgAX9oiECz&_nc_ht=scontent.faep8-1.fna&oh=a837ae1aa4eb2d6717539459f1ef775c&oe=618E1DC0)
+Disfrute del programa. 
+![disfrutar programa](https://scontent.faep8-2.fna.fbcdn.net/v/t1.6435-9/245502115_10217752617401358_2545784027021193995_n.jpg?_nc_cat=109&_nc_rgb565=1&ccb=1-5&_nc_sid=730e14&_nc_ohc=4-wf54rFHuEAX_I3pjv&_nc_ht=scontent.faep8-2.fna&oh=dc0cae000fa28c659d518551c3fa2712&oe=618CD89A)
+
+6)Para salir ingrese -1 y enter.
+![salir del programa](https://scontent.faep8-2.fna.fbcdn.net/v/t1.6435-9/243517317_10217752616641339_8709624725321720363_n.jpg?_nc_cat=100&_nc_rgb565=1&ccb=1-5&_nc_sid=730e14&_nc_ohc=GGmUgYHrBJgAX-r8OT1&_nc_ht=scontent.faep8-2.fna&oh=57b603a18cd67251b5ceefc5be4f070d&oe=618C10B7)
+
+#**Acerca del trabajo**
 
 La idea del tp es implementar la formula resolvente en lenguaje ensamblador para la arquitectura IA32 y C .De manera que calcule las raices de una funcion cuadratica a traves de dicha formula.
 Se debe tener en cuenta que las funciones para implementar las formula deben estar elaboradas en asm, y el programa puede recibir por parametro un valor de punto flotante.
@@ -79,5 +97,4 @@ Una vez que ya pude visualizar mi numero del vector, lo que hice fue usar mis ha
 Entonces use `FADD` para sumar los valores y finalmente `FMUL` para multiplicarlos con r.
 
 
-![Esta es una imagen](https://scontent.faep8-2.fna.fbcdn.net/v/t1.6435-9/240565301_10217560587120721_4078358438168620390_n.jpg?_nc_cat=102&_nc_rgb565=1&ccb=1-5&_nc_sid=730e14&_nc_ohc=JsqZS4aBSBkAX_LVGLZ&_nc_ht=scontent.faep8-2.fna&oh=b9f5315eaa3f84b1ec0a46ee96f504cb&oe=618BCFE7)
-
+Fin del trabajo.
