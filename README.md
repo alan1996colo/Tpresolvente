@@ -74,13 +74,27 @@ Un error comun que tuve fue el clasico -nan , debido a que
 - no estoy apuntando a un contenido sino a una direccion que contenie otra direccion(caso vectores)
 - hago una operacion aritmetica entre direccion y contenido o similar.
 
+
+**implementacion de multiplicar**
+
+![multiply](https://scontent.faep8-2.fna.fbcdn.net/v/t1.6435-9/245229928_10217752746764592_5159126047902093443_n.jpg?_nc_cat=102&_nc_rgb565=1&ccb=1-5&_nc_sid=730e14&_nc_ohc=2olaS-cUzqwAX9-WX8F&_nc_ht=scontent.faep8-2.fna&oh=839f15a48eaf3bedd399d60c31b66cb8&oe=618C163E)
+
 ***Al principio habia creado variables globales en asm, de las cuales podia acceder C,entonces las funciones en lugar de retornar floats, guardaban el resultado en esas variables y no retornaban nada. Me parecio que se hacia poco legible el codigo de esa forma, y lo implemente de manera tal que las funciones retornen el flotante, en lugar de guardarlos.***
+
+**implementacion de raiz**
+
+![raiz2](https://scontent.faep8-2.fna.fbcdn.net/v/t1.6435-9/245391903_10217752761204953_6092832315703465886_n.jpg?_nc_cat=104&_nc_rgb565=1&ccb=1-5&_nc_sid=730e14&_nc_ohc=vjeqpzM18RAAX8hN5Tl&_nc_ht=scontent.faep8-2.fna&oh=81c6c2cc9f8f558de479f7120209966d&oe=618B51DD)
+_para implementar la funcion raiz,estaba pensando en hacer potencia 0.5, pero vi que el set tenia una instruccion especial asi que utilice la instruccion `fsqrt`_
+
+
+_En el resto de funciones se repiten los mismo pasos vistos, pero con su instruccion especia `FADD`, `FDIV`,etc.__
 
 Una complicacion por un detalle que tuve al principio fue que sin querer cambie la letra q por d al guardar result(cuando todavia guardaba en variables) y me costo que me daba cualquier numero despues.(qword[result] / dword[result]) eso modificaba el tamaño.
 
 Otra complicacion que tuve fue que no inicialice la fpu `finit` entonces quedaban algunos valores en el stack, de los usos anteriores, de esto me di cuenta porque al hacer la funcion productoescalar, le agregue al main un while de manera que se pudiera usar una y otra vez, pero despues del primer uso, los siguientes resultados arrojaban -nan. Lo primero que pense fue que podria ser el orden de la instruccion `FMUL` o que habia otra instruccion para negativos, pero era imposible porque en el calculo de la resolvente funcionaba adecuadamente, entonces vincule esto con el problema de "orden en el main", y pense que algun registro podria estarse quedando con un dato basura, y busque la instruccion para limpiar en realidad, pero eso no me funciono, y probe con `finit` y si dio resultado. Entonces aplique `finit` al resto de funciones.,
 
 #    **implementacion del producto escalar**
+![productoEscalar](https://scontent.faep8-1.fna.fbcdn.net/v/t1.6435-9/245343544_10217752725804068_7152793907575175136_n.jpg?_nc_cat=110&_nc_rgb565=1&ccb=1-5&_nc_sid=730e14&_nc_ohc=yrb6gfYp2m0AX9QOXM2&_nc_ht=scontent.faep8-1.fna&oh=589974095354f17624fe54642483b8bc&oe=618B96E6)
 
 Para desarrollar el producto escalar tuve un stall en mi pipeline (jeje), porque no lei correctamente la consigna, y me habia hecho idea de que habia que hacerlo en C usando las funciones ya desarrolladas. Ya lo estaba terminando cuando se me ocurrio repasar la consigna para ver si me quedaba algo mas por hacer, entonces entendi que pedia **UN SOLO VECTOR** y que se desarrolle en asm ia32 (ya lo habia hecho en C para que el usuario decida cantidad de vectores y coordenadas ja)
 Entonces perdi todo ese tiempo, y comence a hacerlo en asm. Entiendo que producto escalar es la suma del producto entre las coordenadas de dos vectores *V1=(a,b,c) , v2=(a2,b2,c2), producto v1*v2= (a1*a2+b1*b2+c1*c2)*
@@ -96,5 +110,12 @@ registros convencionales fue la respuesta. Cargue un registro de 32bits con el c
 Una vez que ya pude visualizar mi numero del vector, lo que hice fue usar mis habilidades matematicas para cambiar esta expresion: **v*r=(ar+br+cr)** por esta otra **v*r=r(a+b+c)** de esta manera en lugar de hacer muchas multiplicaciones y sumas, solo hago una multiplicacion y 3 sumas ~~(mucho mejor) (algebra de boole un poroto)~~
 Entonces use `FADD` para sumar los valores y finalmente `FMUL` para multiplicarlos con r.
 
+
+Todo esto lo compile usando los comandos 
+>nasm -f elf32 tpFormResolv.s -o tpFormResolv.o
+>gcc -m32 -o prueba1 tpFormResolv.o tpFormResolv.c
+
+para ejecutar
+>./prueba1  
 
 Fin del trabajo.
